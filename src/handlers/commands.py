@@ -27,7 +27,7 @@ router = Router()
 
 @router.message(F.chat.type == ChatType.PRIVATE)
 async def process_any_command(message: Message) -> None:
-    user = await get_user(user_id=message.from_user.id)
+    user = await create_user(user_id=message.from_user.id)
     link = await get_link(link_id=1)
 
     if not link:
