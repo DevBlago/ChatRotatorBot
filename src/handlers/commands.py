@@ -24,9 +24,6 @@ from src.crud import (
 
 router = Router()
 
-@router.message(F.chat.type.in_({ChatType.GROUP, ChatType.SUPERGROUP}))
-async def get_chat_id(message: Message):
-    await message.answer(f"ID этого чата: {message.chat.id}")
 
 @router.message(F.chat.type == ChatType.PRIVATE)
 async def process_any_command(message: Message) -> None:
